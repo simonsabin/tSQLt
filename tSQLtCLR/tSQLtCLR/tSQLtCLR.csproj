@@ -51,10 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SigningKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SMSKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CruiseControl|AnyCPU'">
     <OutputPath>bin\CruiseControl\</OutputPath>
@@ -94,6 +94,7 @@
     </None>
     <None Include="PostBuild.bat" />
     <None Include="SigningKey.pfx" />
+    <None Include="SMSKey.snk" />
     <None Include="sql.proj">
       <InProject>false</InProject>
     </None>
@@ -125,6 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\tSQLtTestUtilCLR\tSQLtTestUtilCLR.csproj">
+      <Project>{87e64bc4-089c-4e9f-bcb2-db12bdb5fb89}</Project>
+      <Name>tSQLtTestUtilCLR</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>

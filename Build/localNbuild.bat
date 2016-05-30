@@ -5,7 +5,7 @@ ECHO : Starting BUILD    :
 ECHO +-------------------+
 dir %1\bin\nant
 
-%1\bin\nant -buildfile:tSQLt.build "-D:msbuild.path=%~2\" -D:debug=true || goto :error
+%1\bin\nant -buildfile:tSQLt.build "-D:msbuild.path=%~2\" || goto :error
 
 ECHO +-------------------+
 ECHO : Copying BUILD     :
