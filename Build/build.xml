@@ -22,18 +22,18 @@
  </target>
 
  <target name="clr.testutil.compile">
-  <echo message="Compile CLR Command: ${msbuild.path}msbuild.exe tSQLtTestUtilCLR.csproj /p:Configuration=CruiseControl /nologo"/>
+  <echo message="Compile CLR Command: &quot;${msbuild.path}msbuild.exe&quot; tSQLtTestUtilCLR.csproj /p:Configuration=CruiseControl /nologo"/>
   <exec executable="cmd" dir="../tSQLtCLR/tSQLtTestUtilCLR/" failonerror="true">
    <arg value="/c"/>
-   <arg value="${msbuild.path}msbuild.exe tSQLtTestUtilCLR.csproj /p:Configuration=CruiseControl /nologo"/>
+   <arg value="&quot;${msbuild.path}msbuild.exe&quot; tSQLtTestUtilCLR.csproj /p:Configuration=CruiseControl /nologo"/>
   </exec>
  </target>
 
  <target name="clr.compile">
-  <echo message="Compile CLR Command: ${msbuild.path}msbuild.exe tSQLtCLR.csproj /p:Configuration=CruiseControl /nologo"/>
+  <echo message="Compile CLR Command: &quot;${msbuild.path}msbuild.exe&quot; tSQLtCLR.csproj /p:Configuration=CruiseControl /nologo"/>
   <exec executable="cmd" dir="../tSQLtCLR/tSQLtCLR/" failonerror="true">
    <arg value="/c"/>
-   <arg value="${msbuild.path}msbuild.exe tSQLtCLR.csproj /p:Configuration=CruiseControl /nologo"/>
+   <arg value="&quot;${msbuild.path}msbuild.exe&quot; tSQLtCLR.csproj /p:Configuration=CruiseControl /nologo"/>
   </exec>
 
   <exec executable="cmd" dir="." failonerror="true" outputproperty="clr.version">
