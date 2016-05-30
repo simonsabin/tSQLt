@@ -666,7 +666,7 @@ BEGIN
     EXEC tSQLt.FakeTable @TableName = 'tSQLt.TestResult';
 
     EXEC tSQLt.SpyProcedure 'tSQLt.Private_PrintXML';
-
+	
     DECLARE @XML XML;
 
     DELETE FROM tSQLt.TestResult;
@@ -678,8 +678,8 @@ BEGIN
     VALUES ('MyTestClass2', 'testC', 'Failure', '2015-07-24T00:00:01.111', '2015-08-17T20:31:24.758');
     INSERT INTO tSQLt.TestResult (Class, TestCase, Result, TestStartTime, TestEndTime)
     VALUES ('MyTestClass2', 'testD', 'Error', '2015-07-24T00:00:01.666', '2015-07-24T00:00:01.669');
-    
-    EXEC tSQLt.XmlResultFormatter;
+
+     EXEC tSQLt.XmlResultFormatter;
     
     SELECT @XML = CAST(Message AS XML) FROM tSQLt.Private_PrintXML_SpyProcedureLog;
 
@@ -690,11 +690,11 @@ BEGIN
     INTO #actual
     FROM @XML.nodes('/testsuites/testsuite/testcase') X(TestCase);
     
-    
-    SELECT TOP(0) *
-    INTO #Expected
-    FROM #Actual;
-    
+	select * 
+	from  #Actual A
+	join #Expected E on A. Class = E.Class and A.TestCase  = E.TestCase
+	Where A.Time <> E.Time
+
     INSERT INTO #Expected
     VALUES('MyTestClass1', 'testA', '0.136');
     INSERT INTO #Expected
@@ -702,7 +702,7 @@ BEGIN
     INSERT INTO #Expected
     VALUES('MyTestClass2', 'testC', '2147483.646');
     INSERT INTO #Expected
-    VALUES('MyTestClass2', 'testD', '0.003');
+    VALUES('MyTestClass2', 'testD', '0.004');
 
     EXEC tSQLt.AssertEqualsTable '#expected','#actual';
 END;

@@ -305,6 +305,7 @@
 
  <target name="init.SQLPromptSnippets" description="prepare directories for SQLPromptSnippets build">
   <delete dir="temp"/>
+  <echo message="Pause a little" />
   <mkdir dir="temp"/>
  </target>
 
