@@ -550,6 +550,7 @@ BEGIN
                  NULL AS [testcase!4!classname],
                  NULL AS [testcase!4!name],
                  NULL AS [testcase!4!time],
+                 NULL AS [testcase!4],
                  NULL AS [failure!5!message],
                  NULL AS [failure!5!type],
                  NULL AS [error!6!message],
@@ -571,7 +572,8 @@ BEGIN
                  'tSQLt',
                  NULL,
                  NULL,
-                 NULL,
+                 NUll,
+				 NULL,
                  NULL,
                  NULL,
                  NULL,
@@ -587,6 +589,7 @@ BEGIN
                  'root',
                  NULL,
                  Class,
+                 NULL,
                  NULL,
                  NULL,
                  NULL,
@@ -623,7 +626,9 @@ BEGIN
                  Class,
                  TestCase,
                  CAST(CAST(DATEDIFF(MILLISECOND,TestResult.TestStartTime,TestResult.TestEndTime)/1000.0 AS NUMERIC(20,3))AS VARCHAR(MAX)),
-                 NULL,
+                 '
+',
+				 NULL,
                  NULL,
                  NULL,
                  NULL,
@@ -647,6 +652,7 @@ BEGIN
                  Class,
                  TestCase,
                  CAST(CAST(DATEDIFF(MILLISECOND,TestResult.TestStartTime,TestResult.TestEndTime)/1000.0 AS NUMERIC(20,3))AS VARCHAR(MAX)),
+                 NULL,
                  Msg,
                  'tSQLt.Fail',
                  NULL,
@@ -674,6 +680,7 @@ BEGIN
                  CAST(CAST(DATEDIFF(MILLISECOND,TestResult.TestStartTime,TestResult.TestEndTime)/1000.0 AS NUMERIC(20,3))AS VARCHAR(MAX)),
                  NULL,
                  NULL,
+                 NULL,
                  Msg,
                  'SQL Error',
                  NULL,
@@ -686,6 +693,7 @@ BEGIN
                  'root',
                  NULL,
                  Class,
+                 NULL,
                  NULL,
                  NULL,
                  NULL,
@@ -719,6 +727,7 @@ BEGIN
                  NULL,
                  NULL,
                  NULL,
+                 NULL,
                  Class,
                  NULL,
                  NULL,
@@ -733,7 +742,7 @@ BEGIN
         ) AS X
        ORDER BY [testsuite!2!name],CASE WHEN Tag IN (7,8) THEN 1 ELSE 0 END, [testcase!4!name], Tag
        FOR XML EXPLICIT
-       );
+	   );
 
     EXEC tSQLt.Private_PrintXML @XmlOutput;
 END;
