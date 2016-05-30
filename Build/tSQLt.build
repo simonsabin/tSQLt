@@ -307,6 +307,8 @@
   <delete dir="temp"/>
   <echo message="Pause a little" />
   <mkdir dir="temp"/>
+
+   <echo message="After directory is made" />
  </target>
 
  <target name="package.SQLPromptSnippets.copy">

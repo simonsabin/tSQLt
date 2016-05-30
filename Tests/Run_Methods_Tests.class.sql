@@ -690,11 +690,11 @@ BEGIN
     INTO #actual
     FROM @XML.nodes('/testsuites/testsuite/testcase') X(TestCase);
     
-	select * 
-	from  #Actual A
-	join #Expected E on A. Class = E.Class and A.TestCase  = E.TestCase
-	Where A.Time <> E.Time
-
+	
+    SELECT TOP(0) *
+    INTO #Expected
+    FROM #Actual;
+    
     INSERT INTO #Expected
     VALUES('MyTestClass1', 'testA', '0.136');
     INSERT INTO #Expected
