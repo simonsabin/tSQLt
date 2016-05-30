@@ -17,6 +17,7 @@ CREATE TABLE [tSQLt].[Private_AssertEqualsTableSchema_Actual]
   is_identity BIT NULL
 );
 GO
+--TODO: Put test to ensure thease are the same.
 EXEC('
   SET NOCOUNT ON;
   SELECT TOP(0) * 

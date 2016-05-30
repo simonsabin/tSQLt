@@ -13,6 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
+--TODO: SSMS PostDeploy
 EXEC sp_configure 'clr enabled', 1;
 RECONFIGURE;
 GO
