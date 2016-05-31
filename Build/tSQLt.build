@@ -305,7 +305,7 @@
 
  <target name="init.SQLPromptSnippets" description="prepare directories for SQLPromptSnippets build">
   <delete dir="temp"/>
-  <echo message="Pause a little" />
+ <sleep milliseconds="2000" />
   <mkdir dir="temp"/>
 
    <echo message="After directory is made" />
